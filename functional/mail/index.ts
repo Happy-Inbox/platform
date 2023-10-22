@@ -7,8 +7,8 @@
 import type { IConnection, Primitive, Resolved } from "@nestia/fetcher";
 import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
 
-import type { GetEmailRequest } from "../../../src/controllers/mail/mail.controller.types";
-import type { AuthorizationHeaders } from "../../../src/core.types";
+import type { AuthorizationHeaders } from "../../core.types";
+import type { GetEmailRequest } from "../../mail.controller.types";
 
 export * as sync from "./sync";
 export * as senders from "./senders";

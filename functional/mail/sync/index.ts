@@ -7,8 +7,8 @@
 import type { IConnection, Primitive, Resolved } from "@nestia/fetcher";
 import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
 
-import type { SyncRequest } from "../../../../src/controllers/mail/mail.controller.types";
-import type { AuthorizationHeaders } from "../../../../src/core.types";
+import type { AuthorizationHeaders } from "../../../core.types";
+import type { SyncRequest } from "../../../mail.controller.types";
 
 /**
  * Sync emails in the beginning of the network calls

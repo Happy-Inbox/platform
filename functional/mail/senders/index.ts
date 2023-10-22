@@ -7,8 +7,8 @@
 import type { IConnection, Primitive, Resolved } from "@nestia/fetcher";
 import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
 
-import type { GetSenders } from "../../../../src/controllers/mail/mail.controller.types";
-import type { AuthorizationHeaders } from "../../../../src/core.types";
+import type { AuthorizationHeaders } from "../../../core.types";
+import type { GetSenders } from "../../../mail.controller.types";
 
 export * as emails from "./emails";
 export * as $delete from "./$delete";

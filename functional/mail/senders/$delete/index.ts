@@ -7,7 +7,7 @@
 import type { IConnection, Resolved } from "@nestia/fetcher";
 import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
 
-import type { AuthorizationHeaders } from "../../../../../src/core.types";
+import type { AuthorizationHeaders } from "../../../../core.types";
 
 /**
  * Delete all emails from a sender

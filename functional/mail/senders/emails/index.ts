@@ -7,8 +7,8 @@
 import type { IConnection, Primitive, Resolved } from "@nestia/fetcher";
 import { PlainFetcher } from "@nestia/fetcher/lib/PlainFetcher";
 
-import type { GetEmailsRequest } from "../../../../../src/controllers/mail/mail.controller.types";
-import type { AuthorizationHeaders } from "../../../../../src/core.types";
+import type { AuthorizationHeaders } from "../../../../core.types";
+import type { GetEmailsRequest } from "../../../../mail.controller.types";
 
 /**
  * Get List of emails from a {@link senderId }
