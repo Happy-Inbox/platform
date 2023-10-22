@@ -46,3 +46,10 @@ export namespace GetEmailRequest {
     parts: gmail_v1.Schema$MessagePart[];
   }
 }
+
+export namespace DeleteEmailRequest {
+  export interface Response {
+    success: boolean;
+    email_id: number;
+  }
+}
