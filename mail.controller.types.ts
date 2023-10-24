@@ -26,7 +26,7 @@ export namespace GetEmailsRequest {
   export interface Response {
     data: Pick<
       InferSelectModel<typeof emails>,
-      'originalDate' | 'previewText' | 'subject'
+      'originalDate' | 'previewText' | 'subject' | 'messageId'
     >[];
   }
 }
