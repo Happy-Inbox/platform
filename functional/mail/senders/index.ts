@@ -16,7 +16,7 @@ export * as block from "./block";
 export * as unblock from "./unblock";
 
 /**
- * Get List of Senders Asynchoronously
+ * Get List of Senders. Maximum 100 at a time
  * 
  * @returns List of Senders
  * 
@@ -26,17 +26,19 @@ export * as unblock from "./unblock";
  */
 export async function getSenders(
     connection: IConnection<getSenders.Headers>,
+    requestQuery: getSenders.Query,
 ): Promise<getSenders.Output> {
     return PlainFetcher.fetch(
         connection,
         {
             ...getSenders.METADATA,
-            path: getSenders.path(),
+            path: getSenders.path(requestQuery),
         } as const,
     );
 }
 export namespace getSenders {
     export type Headers = Resolved<AuthorizationHeaders>;
+    export type Query = Resolved<GetSenders.QueryParams>;
     export type Output = Primitive<GetSenders.Response>;
 
     export const METADATA = {
@@ -50,7 +52,16 @@ export namespace getSenders {
         status: null,
     } as const;
 
-    export const path = (): string => {
-        return `/mail/senders`;
+    export const path = (requestQuery: getSenders.Query): string => {
+        const variables: Record<any, any> = requestQuery as any;
+        const search: URLSearchParams = new URLSearchParams();
+        for (const [key, value] of Object.entries(variables))
+            if (value === undefined) continue;
+            else if (Array.isArray(value))
+                value.forEach((elem) => search.append(key, String(elem)));
+            else
+                search.set(key, String(value));
+        const encoded: string = search.toString();
+        return `/mail/senders${encoded.length ? `?${encoded}` : ""}`;;
     }
 }

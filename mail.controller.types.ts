@@ -10,6 +10,12 @@ export namespace GetSenders {
     blocked: boolean;
     emails_count: number;
   }
+
+  export interface QueryParams {
+    // Skip items to fetch the next list of items in the list.
+    skip_items?: number,
+  }
+
   export interface Response {
     data: SendersListItem[];
   }
@@ -28,6 +34,17 @@ export namespace GetEmailsRequest {
       InferSelectModel<typeof emails>,
       'originalDate' | 'previewText' | 'subject' | 'messageId'
     >[];
+  }
+
+  export interface QueryParams {
+    // Start Date must be in YYYY-MM-DD format e.g 2023-12-26
+    start?: string;
+    // End Date must be in YYYY-MM-DD format e.g 2023-12-26
+    end?: string;
+    // Sort order -1 (descending) or 1 (ascending). Default is -1.
+    sort_order?: -1 | 1,
+    // Skip items to fetch the next list of items in the list.
+    skip_items?: number,
   }
 }
 

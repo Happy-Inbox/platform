@@ -11,7 +11,7 @@ import type { AuthorizationHeaders } from "../../../../core.types";
 import type { GetEmailsRequest } from "../../../../mail.controller.types";
 
 /**
- * Get List of emails from a {@link senderId }
+ * Get List of emails from a {@link senderId }. A maximum of 100 emails is sent in one request
  * 
  * @param senderId Sender ID
  * @returns List of Emails
@@ -23,17 +23,19 @@ import type { GetEmailsRequest } from "../../../../mail.controller.types";
 export async function getEmails(
     connection: IConnection<getEmails.Headers>,
     senderId: number,
+    query: getEmails.Query,
 ): Promise<getEmails.Output> {
     return PlainFetcher.fetch(
         connection,
         {
             ...getEmails.METADATA,
-            path: getEmails.path(senderId),
+            path: getEmails.path(senderId, query),
         } as const,
     );
 }
 export namespace getEmails {
     export type Headers = Resolved<AuthorizationHeaders>;
+    export type Query = Resolved<GetEmailsRequest.QueryParams>;
     export type Output = Primitive<GetEmailsRequest.Response>;
 
     export const METADATA = {
@@ -47,7 +49,16 @@ export namespace getEmails {
         status: null,
     } as const;
 
-    export const path = (senderId: number): string => {
-        return `/mail/senders/${encodeURIComponent(senderId ?? "null")}/emails`;
+    export const path = (senderId: number, query: getEmails.Query): string => {
+        const variables: Record<any, any> = query as any;
+        const search: URLSearchParams = new URLSearchParams();
+        for (const [key, value] of Object.entries(variables))
+            if (value === undefined) continue;
+            else if (Array.isArray(value))
+                value.forEach((elem) => search.append(key, String(elem)));
+            else
+                search.set(key, String(value));
+        const encoded: string = search.toString();
+        return `/mail/senders/${encodeURIComponent(senderId ?? "null")}/emails${encoded.length ? `?${encoded}` : ""}`;;
     }
 }
