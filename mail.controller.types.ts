@@ -1,6 +1,7 @@
 import { InferSelectModel } from 'drizzle-orm';
 import { emails } from 'drizzle/schema';
 import { gmail_v1 } from 'googleapis';
+import { tags } from 'typia';
 
 /* eslint-disable @typescript-eslint/no-namespace */
 export namespace GetSenders {
@@ -69,5 +70,9 @@ export namespace DeleteEmailRequest {
   export interface Response {
     success: boolean;
     email_id: number;
+  }
+
+  export interface QueryParams {
+    ids: (number & tags.Type<'int32'>)[] & tags.MinItems<1>;
   }
 }
