@@ -60,7 +60,8 @@ export namespace GetEmailRequest {
     subject: string | null;
     previewText: string;
     mimeType: string;
-    parts: gmail_v1.Schema$MessagePart[];
+    parts?: gmail_v1.Schema$MessagePart[];
+    body?: gmail_v1.Schema$MessagePartBody;
   }
 }
 
