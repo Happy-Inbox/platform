@@ -31,9 +31,9 @@ export namespace SyncRequest {
 
 export namespace GetEmailsRequest {
   export interface Response {
-    data: Pick<
+    data: Omit<
       InferSelectModel<typeof emails>,
-      'originalDate' | 'previewText' | 'subject' | 'messageId'
+      'created_at'
     >[];
   }
 
