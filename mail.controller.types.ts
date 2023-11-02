@@ -73,6 +73,6 @@ export namespace DeleteEmailRequest {
   }
 
   export interface QueryParams {
-    ids: (number & tags.Type<'int32'>)[] & tags.MinItems<1>;
+    ids: (number & tags.Type<'int32'>)[] & tags.MinItems<1> & tags.MaxItems<100>;
   }
 }
