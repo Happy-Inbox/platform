@@ -15,6 +15,7 @@ export namespace GetSenders {
   export interface QueryParams {
     // Skip items to fetch the next list of items in the list.
     skip_items?: number,
+    show_blocked?: boolean,
   }
 
   export interface Response {
