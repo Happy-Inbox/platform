@@ -70,7 +70,6 @@ export namespace GetEmailRequest {
 export namespace DeleteEmailRequest {
   export interface Response {
     success: boolean;
-    email_id: number;
   }
 
   export interface QueryParams {
