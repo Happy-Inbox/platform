@@ -50,6 +50,13 @@ export namespace GetEmailsRequest {
   }
 }
 
+export namespace DeleteSenderRequest {
+  export interface Response {
+    success: boolean;
+    message?: string;
+  }
+}
+
 export namespace BlockSenderRequest {
   export interface Response {
     message?: string;
