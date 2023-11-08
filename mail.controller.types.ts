@@ -15,6 +15,7 @@ export namespace GetSenders {
   export interface QueryParams {
     // Skip items to fetch the next list of items in the list.
     skip_items?: number,
+    sort_by?: 'emails_count' | 'email',
   }
 
   export interface Response {
