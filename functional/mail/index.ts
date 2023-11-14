@@ -22,7 +22,7 @@ export * as senders from "./senders";
  */
 export async function getEmail(
     connection: IConnection<getEmail.Headers>,
-    emailId: string,
+    emailId: number,
 ): Promise<getEmail.Output> {
     return PlainFetcher.fetch(
         connection,
@@ -47,7 +47,7 @@ export namespace getEmail {
         status: null,
     } as const;
 
-    export const path = (emailId: string): string => {
+    export const path = (emailId: number): string => {
         return `/mail/${encodeURIComponent(emailId ?? "null")}`;
     }
 }
