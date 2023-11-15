@@ -36,6 +36,7 @@ export namespace GetEmailsRequest {
       InferSelectModel<typeof emails>,
       'created_at'
     >[];
+    count: number;
   }
 
   export interface QueryParams {
