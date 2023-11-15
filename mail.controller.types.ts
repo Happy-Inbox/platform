@@ -10,6 +10,7 @@ export namespace GetSenders {
     email: string;
     blocked: boolean;
     emails_count: number;
+    imageUrl: string;
   }
 
   export interface QueryParams {
