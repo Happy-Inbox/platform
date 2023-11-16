@@ -4,8 +4,14 @@ export namespace GetCurrentUserRequest {
 
   interface SubscriptionDetails {
     name: string;
-    delete_limit: number;
-    block_limit: number;
+    totals: {
+      delete: number;
+      block: number;
+    };
+    limits: {
+      delete: number;
+      block: number;
+    }
   }
 
   export interface Response {
