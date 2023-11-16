@@ -4,11 +4,11 @@ export namespace GetCurrentUserRequest {
 
   interface SubscriptionDetails {
     name: string;
-    totals: {
+    remaining: {
       delete: number;
       block: number;
     };
-    limits: {
+    quota: {
       delete: number;
       block: number;
     }
