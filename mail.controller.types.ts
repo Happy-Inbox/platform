@@ -82,7 +82,17 @@ export namespace DeleteEmailRequest {
     message?: string;
   }
 
-  export interface QueryParams {
+  export type DeleteEmailByIdsParams = {
     ids: (number & tags.Type<'int32'>)[] & tags.MinItems<1> & tags.MaxItems<100>;
   }
+
+  export type DeleteEmailByRangeParams = {
+    sender_id: number & tags.Type<'int32'>;
+    // Start Date must be in YYYY-MM-DD format e.g 2023-12-26
+    start_date: string;
+    // End Date must be in YYYY-MM-DD format e.g 2023-12-26
+    end_date: string;
+  }
+
+  export type QueryParams = DeleteEmailByIdsParams | DeleteEmailByRangeParams;
 }
