@@ -91,3 +91,9 @@ export namespace DeleteEmailRequest {
     end_date?: string;
   };
 }
+
+export namespace DeleteSendersRequest {
+  export interface QueryParams {
+    senderIds: (number & tags.Type<'int32'>)[] & tags.MinItems<1> & tags.MaxItems<100>;
+  }
+}
