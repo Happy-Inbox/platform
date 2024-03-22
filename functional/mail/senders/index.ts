@@ -13,8 +13,6 @@ import type { GetSenders } from "../../../mail.controller.types";
 export * as emails from "./emails";
 export * as $delete from "./$delete";
 export * as delete_many from "./delete_many";
-export * as block from "./block";
-export * as unblock from "./unblock";
 
 /**
  * Get List of Senders. Maximum 100 at a time
