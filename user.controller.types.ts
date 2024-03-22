@@ -2,22 +2,23 @@
 
 export namespace GetCurrentUserRequest {
 
-  interface SubscriptionDetails {
+  export interface SubscriptionDetails {
     name: string;
+    isPremium: boolean;
     remaining: {
       delete: number;
       block: number;
-    };
+    } | null;
     quota: {
       delete: number;
       block: number;
-    }
+    } | null;
   }
 
   export interface Response {
     id: number;
     photo_url: string | null;
     name: string | null;
-    subscription: SubscriptionDetails;
+    subscription: SubscriptionDetails | null;
   }
 }
