@@ -20,5 +20,6 @@ export namespace GetCurrentUserRequest {
     photo_url: string | null;
     name: string | null;
     subscription: SubscriptionDetails | null;
+    delete_count: number;
   }
 }
