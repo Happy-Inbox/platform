@@ -27,6 +27,7 @@ export namespace GetSenders {
 export namespace SyncRequest {
   export interface Response {
     success: boolean;
+    redirectUrl?: string;
     message?: string;
   }
 }
