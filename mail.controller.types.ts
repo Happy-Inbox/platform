@@ -15,8 +15,8 @@ export namespace GetSenders {
 
   export interface QueryParams {
     // Skip items to fetch the next list of items in the list.
-    skip_items?: number,
-    sort_by?: 'emails_count' | 'email',
+    skip_items?: number;
+    sort_by?: 'emails_count' | 'email';
   }
 
   export interface Response {
@@ -29,15 +29,13 @@ export namespace SyncRequest {
     success: boolean;
     redirectUrl?: string;
     message?: string;
+    profile?: gmail_v1.Schema$Profile;
   }
 }
 
 export namespace GetEmailsRequest {
   export interface Response {
-    data: Omit<
-      InferSelectModel<typeof emails>,
-      'created_at'
-    >[];
+    data: Omit<InferSelectModel<typeof emails>, 'created_at'>[];
     count: number;
   }
 
@@ -47,9 +45,9 @@ export namespace GetEmailsRequest {
     // End Date must be in YYYY-MM-DD format e.g 2023-12-26
     end?: string;
     // Sort order -1 (descending) or 1 (ascending). Default is -1.
-    sort_order?: -1 | 1,
+    sort_order?: -1 | 1;
     // Skip items to fetch the next list of items in the list.
-    skip_items?: number,
+    skip_items?: number;
   }
 }
 
